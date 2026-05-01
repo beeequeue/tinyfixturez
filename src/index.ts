@@ -1,9 +1,9 @@
 import { Buffer } from "node:buffer"
 import fs from "node:fs"
 import os from "node:os"
+import path from "node:path"
 
 import * as find from "empathic/find"
-import path from "pathe"
 import whenExit from "when-exit"
 
 const findPotentialRootDir = (): string | null => {

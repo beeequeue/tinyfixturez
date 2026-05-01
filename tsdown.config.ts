@@ -8,8 +8,7 @@ export default defineConfig({
 	unbundle: true,
 	exports: true,
 	deps: {
-		onlyBundle: ["pathe"],
-		neverBundle: ["vitest"],
+		neverBundle: ["pathe", "vitest"],
 	},
 
 	env: {

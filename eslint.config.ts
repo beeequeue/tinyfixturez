@@ -19,10 +19,6 @@ export default antfu({
 			"unicorn/number-literal-case": "off",
 			"unused-imports/no-unused-vars": "off",
 
-			"ts/no-restricted-imports": [
-				"error",
-				{ paths: [{ name: "node:path", message: "Use `pathe` instead." }] },
-			],
 			// for oxc type generation
 			"ts/explicit-function-return-type": "error",
 			// auto-fix type imports

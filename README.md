@@ -9,7 +9,6 @@ A tiny library for building and using file fixtures in tests
 I tried to keep the same API as [fixturez](https://github.com/substack/fixturez) with a few differences:
 
 - The default export is replaced with the named export `getFixtures()`
-- All paths are normalized to use `/` as the path separator on all platforms
 - More functionality (`build()`, `Symbol.dispose` support)
 
 ## Usage
