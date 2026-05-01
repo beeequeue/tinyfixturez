@@ -49,6 +49,18 @@ export type Fixtures = {
 	/** Creates a temporary directory and returns the path. */
 	temp: () => string
 
+	/**
+	 * Builds a temporary directory with the given files and returns the path.
+	 *
+	 * @example
+	 * ```ts
+	 * const tempDir = fixtures.build({
+	 *   "root.txt": "Hello, world!", // string
+	 *   "dir/one.txt": { hello: "world" }, // json
+	 *   "dir/two.txt": Buffer.from("hello world"), // buffer
+	 * })
+	 * ```
+	 */
 	build: (input: Record<string, BuildFileContent>) => string
 
 	/** Clean up any temporary directories created by this instance */
