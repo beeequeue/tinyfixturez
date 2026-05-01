@@ -20,15 +20,30 @@ export type Fixtures = {
 	/**
 	 * Returns the absolute path of a fixture.
 	 *
-	 * Throws an error if the fixture does not exist.
+	 * Walks upwards from the base directory until it finds a fixture with the correct name.
 	 */
 	find: (name: string) => string
 
 	/**
-	 * Copies a fixture to a temporary directory and returns the new path.
+	 * Reads a fixture as a string and returns it.
 	 *
-	 * Throws an error if the fixture does not exist.
+	 * Walks upwards from the base directory until it finds a fixture with the correct name.
 	 */
+	readString: (name: string) => string
+	/**
+	 * Reads a fixture as JSON and returns it.
+	 *
+	 * Walks upwards from the base directory until it finds a fixture with the correct name.
+	 */
+	readJson: <T>(name: string) => T
+	/**
+	 * Reads a fixture as Buffer and returns it.
+	 *
+	 * Walks upwards from the base directory until it finds a fixture with the correct name.
+	 */
+	readRaw: (name: string) => Buffer
+
+	/** Copies a fixture to a temporary directory and returns the new path. */
 	copy: (name: string) => string
 
 	/** Creates a temporary directory and returns the path. */
@@ -110,6 +125,17 @@ export const getFixtures = (base: string): Fixtures => {
 		return tempDir
 	}
 
+	const read = (name: string): Buffer => {
+		const fixturePath = findFn(name)
+		return fs.readFileSync(fixturePath)
+	}
+	const readString = (name: string): string => {
+		return read(name).toString("utf8")
+	}
+	const readJson = <T>(name: string): T => {
+		return JSON.parse(readString(name)) as T
+	}
+
 	return {
 		baseDir,
 
@@ -117,6 +143,10 @@ export const getFixtures = (base: string): Fixtures => {
 		copy,
 		temp,
 		build,
+
+		readString,
+		readJson,
+		readRaw: read,
 
 		dispose,
 		[Symbol.dispose]: dispose,

@@ -54,10 +54,14 @@ import { fn } from "./bar.ts"
 const fixtures = getFixtures(import.meta.dirname)
 
 // Searches upwards for the closest `fixtures/bar.json` file from the current directory (import.meta.dirname)
+
+// returns the absolute path to the fixture
 const barFixturePath = fixtures.find("bar.json")
-const barFixture = readFileSync(barFixturePath)
+
+// `readString`, `readJSON`, and `readRaw` finds a fixture and returns its contents
+const barFixture = fixtures.readJson("bar.json")
 
 it("should look like the fixture", () => {
-	expect(fn()).toStrictEqual({ hello: "world" })
+	expect(fn()).toStrictEqual(barFixture)
 })
 ```
