@@ -1,0 +1,1 @@
+This is the first fixture in a directory intended to test `fixtures.copy()` with a directory.

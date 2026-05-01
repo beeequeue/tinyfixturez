@@ -1,0 +1,1 @@
+This is a deep.txt fixture, which should only be available to `deeply-nested.test.ts`

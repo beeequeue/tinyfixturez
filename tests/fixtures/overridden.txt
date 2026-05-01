@@ -1,0 +1,2 @@
+This is the overridden.txt fixture, which should be tested to be
+overridden by files with the same name closer to the test file.

@@ -1,0 +1,13 @@
+import { defineConfig } from "oxfmt"
+
+export default defineConfig({
+	semi: false,
+
+	sortImports: {
+		type: "natural",
+		internalPattern: ["#/", "@/"],
+		groups: ["builtin", "external", "internal", "parent", "sibling", "index", "unknown"],
+	},
+
+	sortPackageJson: false,
+})
