@@ -8,6 +8,7 @@ export default defineConfig({
 	unbundle: true,
 	exports: true,
 	deps: {
+		onlyBundle: ["empathic"],
 		neverBundle: ["pathe", "vitest"],
 	},
 
