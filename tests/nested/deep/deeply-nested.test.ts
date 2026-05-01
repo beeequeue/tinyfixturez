@@ -1,4 +1,4 @@
-import { getFixtures } from "tinyfixtures"
+import { getFixtures } from "tinyfixturez"
 import { expect, it } from "vitest"
 
 it("can find fixtures next to the test file", () => {

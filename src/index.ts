@@ -80,7 +80,7 @@ export const getFixtures = (base: string): Fixtures => {
 	}
 
 	const temp = (): string => {
-		const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "tinyfixtures-"))
+		const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "tinyfixturez-"))
 		knownDirs.add(tempDir)
 		return tempDir
 	}

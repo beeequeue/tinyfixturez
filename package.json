@@ -1,10 +1,11 @@
 {
-	"name": "tinyfixtures",
-	"private": true,
+	"name": "tinyfixturez",
+	"description": "A tiny library for building and using file fixtures in tests",
 	"type": "module",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"license": "MIT",
 	"author": "BeeeQueue <adam@haglund.dev>",
+	"repository": "beeequeue/tinyfixturez",
 	"packageManager": "pnpm@11.0.3",
 	"engines": {
 		"node": ">=20.19"

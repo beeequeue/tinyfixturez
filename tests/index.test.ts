@@ -3,7 +3,7 @@ import { existsSync, readFileSync } from "node:fs"
 import os from "node:os"
 
 import path from "pathe"
-import { getFixtures } from "tinyfixtures"
+import { getFixtures } from "tinyfixturez"
 import { describe, expect, it } from "vitest"
 
 import { relativeToCwd } from "../src/utils.ts"
