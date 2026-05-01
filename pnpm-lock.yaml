@@ -24,9 +24,6 @@ importers:
       empathic:
         specifier: ^2.0.0
         version: 2.0.0
-      pathe:
-        specifier: ^2.0.3
-        version: 2.0.3
       when-exit:
         specifier: ^2.1.5
         version: 2.1.5
@@ -55,6 +52,9 @@ importers:
       oxfmt:
         specifier: 0.47.0
         version: 0.47.0
+      pathe:
+        specifier: ^2.0.3
+        version: 2.0.3
       publint:
         specifier: 0.3.18
         version: 0.3.18
