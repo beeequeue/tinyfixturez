@@ -14,26 +14,50 @@ I tried to keep the same API as [fixturez](https://github.com/substack/fixturez)
 
 ## Usage
 
-You can also check out the [tests](./tests) for full, working usage examples.
+You can also check out the [tests](./tests) for working, tested examples.
+
+### Building a temporary file structure
 
 ```ts
-// assuming this file structure:
-// src/fixtures/foo.json
+import { getFixtures } from "tinyfixturez"
+
+// all temporary directories are cleaned up on process exit
+const fixtures = getFixtures(import.meta.dirname)
+
+const tempDir = fixtures.build({
+	"foo.txt": "hello world",
+	"bar/foo.json": { hello: "world" },
+	"biz/baz/foo.bin": Buffer.from("hello world", "utf8"),
+})
+
+console.log(tempDir) // /tmp/tinyfixturez-1234567890abcdef
+
+// Generates these files:
+// /tmp/tinyfixturez-1234567890abcdef/foo.txt
+// /tmp/tinyfixturez-1234567890abcdef/bar/foo.json
+// /tmp/tinyfixturez-1234567890abcdef/biz/baz/foo.bin
+```
+
+### Loading existing fixtures
+
+```ts
 // src/fixtures/bar.json
+// { "hello": "world" }
 
 // src/foo/bar.test.ts
 import { readFileSync } from "node:fs"
 import { getFixtures } from "tinyfixturez"
+import { expect, it } from "vitest"
 import { fn } from "./bar.ts"
 
+// all temporary directories are cleaned up on process exit
 const fixtures = getFixtures(import.meta.dirname)
 
+// Searches upwards for the closest `fixtures/bar.json` file from the current directory (import.meta.dirname)
 const barFixturePath = fixtures.find("bar.json")
 const barFixture = readFileSync(barFixturePath)
 
 it("should look like the fixture", () => {
-	expect(fn()).toEqual(barFixture)
+	expect(fn()).toStrictEqual({ hello: "world" })
 })
-
-// TODO
 ```
