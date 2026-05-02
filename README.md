@@ -6,10 +6,11 @@
 
 A tiny library for building and using file fixtures in tests
 
-I tried to keep the same API as [fixturez](https://github.com/substack/fixturez) with a few differences:
+I tried to keep the same API as [fixturez](https://npmx.dev/package/fixturez) with a few differences:
 
 - The default export is replaced with the named export `getFixtures()`
 - More functionality (`build()`, `Symbol.dispose` support)
+- Tiny (17kB vs. 190kB), with modern dependencies (no `globby`, `fs-extra`, `tempy`, etc.)
 
 ## Usage
 
