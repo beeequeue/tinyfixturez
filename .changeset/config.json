@@ -1,0 +1,10 @@
+{
+	"$schema": "../node_modules/.pnpm/@changesets+config@4.0.0-next.1/node_modules/@changesets/config/schema.json",
+	"access": "public",
+	"changelog": [
+		"@changesets/changelog-github",
+		{
+			"repo": "BeeeQueue/tinyfixturez"
+		}
+	]
+}
