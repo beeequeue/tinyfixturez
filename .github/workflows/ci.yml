@@ -29,14 +29,15 @@ jobs:
 
       - name: find pnpm cache path
         id: cache
+        shell: bash
         run: echo "path=$(pnpm store path)" >> "$GITHUB_OUTPUT"
 
       - uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:
           path: ${{ steps.cache.outputs.path }}
-          key: v1-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          key: v1-pnpm-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            v1-pnpm-
+            v1-pnpm-${{ runner.os }}-
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -58,14 +59,15 @@ jobs:
 
       - name: find pnpm cache path
         id: cache
+        shell: bash
         run: echo "path=$(pnpm store path)" >> "$GITHUB_OUTPUT"
 
       - uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:
           path: ${{ steps.cache.outputs.path }}
-          key: v1-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          key: v1-pnpm-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            v1-pnpm-
+            v1-pnpm-${{ runner.os }}-
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -88,14 +90,15 @@ jobs:
 
       - name: find pnpm cache path
         id: cache
+        shell: bash
         run: echo "path=$(pnpm store path)" >> "$GITHUB_OUTPUT"
 
       - uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:
           path: ${{ steps.cache.outputs.path }}
-          key: v1-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          key: v1-pnpm-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            v1-pnpm-
+            v1-pnpm-${{ runner.os }}-
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -109,6 +112,7 @@ jobs:
     runs-on: ${{ matrix.platform }}
     needs: [build]
     strategy:
+      fail-fast: false
       matrix:
         node-version: [22, 24, 25]
         platform: [ubuntu-24.04-arm, macos-14, windows-11-arm]
@@ -125,14 +129,15 @@ jobs:
 
       - name: find pnpm cache path
         id: cache
+        shell: bash
         run: echo "path=$(pnpm store path)" >> "$GITHUB_OUTPUT"
 
       - uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:
           path: ${{ steps.cache.outputs.path }}
-          key: v1-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          key: v1-pnpm-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            v1-pnpm-
+            v1-pnpm-${{ runner.os }}-
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -164,23 +169,21 @@ jobs:
 
       - name: find pnpm cache path
         id: cache
+        shell: bash
         run: echo "path=$(pnpm store path)" >> "$GITHUB_OUTPUT"
 
       - uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:
           path: ${{ steps.cache.outputs.path }}
-          key: v1-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          key: v1-pnpm-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            v1-pnpm-
+            v1-pnpm-${{ runner.os }}-
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
       - name: Build
         run: node --run build
-
-      - name: update npm
-        run: npm i -g npm
 
       - name: Update release PR / Publish packages to `npm`
         id: changesets
@@ -191,3 +194,4 @@ jobs:
           publish: pnpm changeset publish
         env:
           NPM_CONFIG_PROVENANCE: true
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

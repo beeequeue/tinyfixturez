@@ -1,7 +1,7 @@
 import { getFixtures } from "tinyfixturez"
 import { expect, it } from "vitest"
 
-import { relativeToCwd } from "../../../src/utils.ts"
+import { relativeToCwd } from "../../utils.ts"
 
 it("can find fixtures next to the test file", () => {
 	const fixtures = getFixtures(import.meta.dirname)

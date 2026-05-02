@@ -1,12 +1,11 @@
 import { Buffer } from "node:buffer"
 import { existsSync, readFileSync } from "node:fs"
-import os from "node:os"
 
 import path from "pathe"
 import { getFixtures } from "tinyfixturez"
 import { describe, expect, it } from "vitest"
 
-import { relativeToCwd } from "../src/utils.ts"
+import { relativeToCwd } from "./utils.ts"
 
 it("base dir gets set to absolute path from relative", () => {
 	const fixtures = getFixtures(path.relative(process.cwd(), import.meta.dirname))
@@ -42,7 +41,7 @@ describe(".copy()", () => {
 		const fixtures = getFixtures(import.meta.dirname)
 
 		const fixturePath = fixtures.copy("root.txt")
-		expect(fixturePath).toContain(os.platform() === "win32" ? "Temp" : "tmp") // TODO: add macos location
+		expect(fixturePath).toBeInsideOsTempDir()
 		expect(fixturePath).toEqual(expect.stringMatching(/root\.txt$/))
 	})
 
@@ -50,7 +49,7 @@ describe(".copy()", () => {
 		const fixtures = getFixtures(import.meta.dirname)
 
 		const fixturePath = fixtures.copy("dir")
-		expect(fixturePath).toContain(os.platform() === "win32" ? "Temp" : "tmp") // TODO: add macos location
+		expect(fixturePath).toBeInsideOsTempDir()
 		expect(fixturePath).toEqual(expect.stringMatching(/dir$/))
 
 		expect(existsSync(path.join(fixturePath, "one.txt"))).toBe(true)
@@ -68,7 +67,7 @@ describe(".temp()", () => {
 		const fixtures = getFixtures(import.meta.dirname)
 
 		const fixturePath = fixtures.temp()
-		expect(fixturePath).toContain(os.platform() === "win32" ? "Temp" : "tmp") // TODO: add macos location
+		expect(fixturePath).toBeInsideOsTempDir()
 		expect(existsSync(fixturePath)).toBe(true)
 	})
 })
@@ -78,7 +77,7 @@ describe(".build()", () => {
 		const fixtures = getFixtures(import.meta.dirname)
 
 		const fixturePath = fixtures.build({})
-		expect(fixturePath).toContain(os.platform() === "win32" ? "Temp" : "tmp") // TODO: add macos location
+		expect(fixturePath).toBeInsideOsTempDir()
 		expect(existsSync(fixturePath)).toBe(true)
 	})
 
