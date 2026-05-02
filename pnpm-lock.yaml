@@ -68,8 +68,8 @@ importers:
         specifier: 2.13.1
         version: 2.13.1
       tsdown:
-        specifier: 0.22.0-beta.2
-        version: 0.22.0-beta.2(@typescript/native-preview@7.0.0-dev.20260430.1)(publint@0.3.18)(typescript@6.0.3)
+        specifier: 0.22.0-beta.3
+        version: 0.22.0-beta.3(@typescript/native-preview@7.0.0-dev.20260430.1)(publint@0.3.18)(typescript@6.0.3)
       vitest:
         specifier: 4.1.5
         version: 4.1.5(@types/node@25.6.0)(vite@8.0.10)
@@ -1856,9 +1856,9 @@ packages:
   rfdc@1.4.1:
     resolution: {integrity: sha512-q1b3N5QkRUWUl7iyylaaj3kOpIT0N2i9MqIEQXP73GVsN9cw3fdx8X63cEmWhJGi2PPCF23Ijp7ktmd39rawIA==}
 
-  rolldown-plugin-dts@0.24.0-beta.2:
-    resolution: {integrity: sha512-qTvQA3IPvpgiCWPG68+qtEkS4W8XbipKN4Y8VEB7mnBoinX3/gCMkOSHUjZD4ixd+z9WZgkqrtDN9mF4k2N2Vw==}
-    engines: {node: '>=22.18.0'}
+  rolldown-plugin-dts@0.24.1:
+    resolution: {integrity: sha512-mh0oL67i6vJvpHsPtPutVE0CzHb2RvaEmU/JXPrTPnXx7yAUd/b9B2gCMLdW2yDylbJyPZMZIssXPkOLxMuYHA==}
+    engines: {node: ^22.18.0 || >=24.0.0}
     peerDependencies:
       '@ts-macro/tsc': ^0.3.6
       '@typescript/native-preview': '>=7.0.0-dev.20260325.1'
@@ -2037,14 +2037,14 @@ packages:
     peerDependencies:
       typescript: '>=4.0.0'
 
-  tsdown@0.22.0-beta.2:
-    resolution: {integrity: sha512-r52jXWRE768q8Wm+LjPcpLKt8Pt8MTz10lADM2D6XrLb+bl310KolFd8Fa0EI3DJqeHJyp8q9m4NJkP+lTS0yA==}
+  tsdown@0.22.0-beta.3:
+    resolution: {integrity: sha512-rWNLRAC8XfFYA36EP+ituJwY/fjnxXRCuCJVqq+SJzMboUoXM6qP6bcmDv/2sjcfPL8eZUjtowsJ2hfCFflq1A==}
     engines: {node: '>=22.18.0'}
     hasBin: true
     peerDependencies:
       '@arethetypeswrong/core': ^0.18.1
-      '@tsdown/css': 0.22.0-beta.2
-      '@tsdown/exe': 0.22.0-beta.2
+      '@tsdown/css': 0.22.0-beta.3
+      '@tsdown/exe': 0.22.0-beta.3
       '@vitejs/devtools': '*'
       publint: ^0.3.8
       tsx: '*'
@@ -3875,7 +3875,7 @@ snapshots:
 
   rfdc@1.4.1: {}
 
-  rolldown-plugin-dts@0.24.0-beta.2(@typescript/native-preview@7.0.0-dev.20260430.1)(rolldown@1.0.0-rc.18)(typescript@6.0.3):
+  rolldown-plugin-dts@0.24.1(@typescript/native-preview@7.0.0-dev.20260430.1)(rolldown@1.0.0-rc.18)(typescript@6.0.3):
     dependencies:
       '@babel/generator': 8.0.0-rc.4
       '@babel/helper-validator-identifier': 8.0.0-rc.4
@@ -3885,7 +3885,6 @@ snapshots:
       dts-resolver: 2.1.3
       get-tsconfig: 5.0.0-beta.5
       obug: 2.1.1
-      picomatch: 4.0.4
       rolldown: 1.0.0-rc.18
     optionalDependencies:
       '@typescript/native-preview': 7.0.0-dev.20260430.1
@@ -4061,7 +4060,7 @@ snapshots:
       picomatch: 4.0.4
       typescript: 6.0.3
 
-  tsdown@0.22.0-beta.2(@typescript/native-preview@7.0.0-dev.20260430.1)(publint@0.3.18)(typescript@6.0.3):
+  tsdown@0.22.0-beta.3(@typescript/native-preview@7.0.0-dev.20260430.1)(publint@0.3.18)(typescript@6.0.3):
     dependencies:
       ansis: 4.2.0
       cac: 7.0.0
@@ -4072,7 +4071,7 @@ snapshots:
       obug: 2.1.1
       picomatch: 4.0.4
       rolldown: 1.0.0-rc.18
-      rolldown-plugin-dts: 0.24.0-beta.2(@typescript/native-preview@7.0.0-dev.20260430.1)(rolldown@1.0.0-rc.18)(typescript@6.0.3)
+      rolldown-plugin-dts: 0.24.1(@typescript/native-preview@7.0.0-dev.20260430.1)(rolldown@1.0.0-rc.18)(typescript@6.0.3)
       semver: 7.7.4
       tinyexec: 1.1.2
       tinyglobby: 0.2.16
