@@ -2,7 +2,7 @@
 	"name": "tinyfixturez",
 	"description": "A tiny library for building and using file fixtures in tests",
 	"type": "module",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"license": "MIT",
 	"author": "BeeeQueue <adam@haglund.dev>",
 	"repository": "beeequeue/tinyfixturez",
