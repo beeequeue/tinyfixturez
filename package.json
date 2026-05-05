@@ -30,7 +30,9 @@
 		"lint": "eslint --flag unstable_native_nodejs_ts_config",
 		"lint:format": "oxfmt --check",
 		"test": "vitest",
-		"typecheck": "tsgo --noEmit"
+		"typecheck": "tsgo --noEmit",
+		"version-packages": "changeset version && oxfmt --write",
+		"release": "node --run build && changeset publish"
 	},
 	"dependencies": {
 		"when-exit": "^2.1.5"
