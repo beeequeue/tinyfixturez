@@ -39,7 +39,7 @@
 	},
 	"devDependencies": {
 		"@antfu/eslint-config": "8.2.0",
-		"@changesets/changelog-github": "1.0.0-next.2",
+		"@changesets/changelog-github": "1.0.0",
 		"@changesets/cli": "3.0.0-next.2",
 		"@tsconfig/node22": "22.0.5",
 		"@tsconfig/strictest": "2.0.8",
