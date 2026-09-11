@@ -9,6 +9,8 @@ minimumReleaseAgeExclude:
   - rolldown-plugin-dts
   - tsdown
   - unrun
+  # Renovate security update: vitest@4.1.11
+  - vitest@4.1.11
 
 dedupePeers: true
 dedupePeerDependents: true

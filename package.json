@@ -53,7 +53,7 @@
 		"publint": "0.3.18",
 		"simple-git-hooks": "2.13.1",
 		"tsdown": "0.22.0-beta.3",
-		"vitest": "4.1.5"
+		"vitest": "4.1.11"
 	},
 	"inlinedDependencies": {
 		"empathic": "2.0.0"
